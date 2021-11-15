@@ -1,0 +1,64 @@
+{% extends "layout.html" %} {% block body %}
+<form action="/" method="post" class="bs-component">
+  <div class="form-group">
+    <label class="col-form-label col-form-label-lg mt-4" for="inputLarge"
+      >Temperature (In °C)</label
+    >
+    <input
+        class="form-control form-control-lg"
+        type="number"
+        name="temperature"
+        id="inputLarge"
+        type="number"
+        required
+        style="padding: 5 px;background-color: transparent;"
+        min="5"
+        max="45"
+    />
+    <div class="form-group">
+        <label class="col-form-label col-form-label-lg mt-4" for="inputLarge">Humidity (In g.kg-1)</label>
+        <input
+            class="form-control form-control-lg"
+            type="number"
+            name="humidity"
+            id="inputLarge"
+            type="number"
+            required
+            style="padding: 5 px;background-color: transparent;"
+        />
+    <div class="form-group">
+        <label class="col-form-label col-form-label-lg mt-4" for="inputLarge">Ph Of Soil</label>
+        <input
+            class="form-control form-control-lg"
+            type="number"
+            name="ph"
+            id="inputLarge"
+            type="number"
+            required
+            style="padding: 5 px; background-color: transparent;"
+            min="3"
+            max="13"
+        />
+    <div class="form-group">
+        <label class="col-form-label col-form-label-lg mt-4" for="inputLarge"
+            >Rainfall (In mm)</label
+        >
+        <input
+            class="form-control form-control-lg"
+            type="number"
+            name="rainfall"
+            id="inputLarge"
+            type="number"
+            required
+            style="padding: 5 px;background-color: transparent;"
+        /> <br>
+    <button
+      type="submit"
+      class="btn btn-primary form-control form-control-lg"
+      style="padding: 10px; width: 120px; border-radius: 10px"
+    >
+    Recommend
+    </button>
+  </div>
+</form>
+{% endblock %}

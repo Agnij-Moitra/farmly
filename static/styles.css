@@ -1,0 +1,62 @@
+* {
+  min-height: fit-content;
+}
+body {
+  background-image: linear-gradient(90deg, #33b7e2, #5e62b0, #dc307c);
+  align-self: center;
+  margin: auto;
+  min-height: fit-content;
+  max-height: 700px;
+}
+.card {
+  min-height: fit-content;
+  top: 5px;
+  padding: 1%;
+  border-radius: 15px;
+  box-shadow: inset 1px 1px rgb(255 255 255 / 20%),
+    inset -1px -1px rgb(255 255 255 / 10%), 1px 3px 24px -1px rgb(0 0 0 / 15%);
+  background-color: transparent;
+  background-image: linear-gradient(
+    125deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.2) 70%
+  );
+  -webkit-backdrop-filter: blur(5 px);
+  backdrop-filter: blur(5 px);
+  --bs-secondary-rgb: transparent;
+}
+.form-control-lg {
+  min-height: calc(1.5 em + 1 rem + 2 px);
+  padding: 0.5 rem 1 rem;
+  font-size: 1.25rem;
+  border-radius: 15px;
+  border: 1 px solid rgba(255, 255, 255, 0.4);
+  background-color: transparent;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #e83283;
+  border-color: #e83283;
+}
+
+input {
+  border-radius: 15px;
+  background: transparent;
+  background-color: transparent;
+}
+input::after {
+  background: transparent;
+  background-color: transparent;
+}
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 0.75 rem 1.5 rem;
+  font-size: 1rem;
+  border-radius: 15 px;
+}
