@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, jsonify
 import pickle
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
-import math
 
 app = Flask(__name__)
 
