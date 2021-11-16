@@ -2,20 +2,24 @@ from flask import Flask, render_template, request, jsonify
 import pickle
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
+import math
 
-df = pd.read_csv(r'./Crop_recommendation.csv')
+app = Flask(__name__)
+
+df = pd.read_csv('./crop.csv')
 labelencoder = LabelEncoder()
 df['label_cat'] = labelencoder.fit_transform(df['label'])
-app = Flask(__name__)
+with open('model_pickle', "rb") as f:
+    model = pickle.load(f)
 
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        temp = request.form.get("temperature")
-        hum = request.form.get("humidity")
-        ph = request.form.get("ph")
-        rain = request.form.get("rainfall")
+        temp = float(request.form.get("temperature"))
+        hum = float(request.form.get("humidity"))
+        ph = float(request.form.get("ph"))
+        rain = float(request.form.get("rainfall"))
         pred = recommend(temp, hum, ph, rain)
         crop = pred[0].capitalize()
         n = pred[1][0]
@@ -27,11 +31,9 @@ def index():
 
 
 def recommend(temp, hum, ph, rain):
-    with open('model_pickle', "rb") as f:
-        model = pickle.load(f)
-    npk = list(model.predict([[34, 7, 4, 5]])[0])[1:]
-
-    crop_index = round(list(model.predict([[34, 7, 4, 5]])[0])[0])
+    preds = list(model.predict([[temp, hum, ph, rain]])[0])
+    npk = preds[1:]
+    crop_index = round(preds[0])
 
     mapper = dict(zip(labelencoder.classes_,
                   range(len(labelencoder.classes_))))
