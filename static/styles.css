@@ -10,7 +10,7 @@ body {
 }
 .card {
   min-height: fit-content;
-  top: 5px;
+  top: 100%;
   padding: 1%;
   border-radius: 15px;
   box-shadow: inset 1px 1px rgb(255 255 255 / 20%),
