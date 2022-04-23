@@ -1,0 +1,33 @@
+{% extends "layout.html" %} {% block body %}
+<form
+  action="/Disease-Detection"
+  method="post"
+  class="bs-component"
+  style="margin-left: 10%"
+  enctype="multipart/form-data"
+>
+  <h3>Upload Plant Disease File</h3>
+    <input
+      class="form-control form-control-lg"
+      type="file"
+      name="plantDiseaseImg"
+      id="inputLarge"
+      style="
+        padding: 5 px;
+        background-color: transparent;
+        border-radius: 10px;
+        width: 85%;
+      "
+      .
+      accept=".txt, .pdf, .docx, .doc, .epub"
+    />
+    <br />
+    <button
+      type="submit"
+      class="btn btn-primary form-control form-control-lg"
+      style="padding: 10px; width: max-content; border-radius: 10px"
+    >
+    Submit
+  </div>
+</form>
+{% endblock %}

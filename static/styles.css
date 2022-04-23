@@ -48,10 +48,11 @@ input::after {
   background: transparent;
   background-color: transparent;
 }
-.btn {
+/* .btn {
   display: inline-block;
   font-weight: 400;
   line-height: 1.5;
+  text-decoration-color: white;
   color: #fff;
   text-align: center;
   vertical-align: middle;
@@ -60,3 +61,7 @@ input::after {
   font-size: 1rem;
   border-radius: 15 px;
 }
+
+#btn {
+  color: white;
+} */
