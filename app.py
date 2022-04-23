@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, jsonify
 import pickle
+
 import pandas as pd
+from flask import Flask, jsonify, render_template, request
 from sklearn.preprocessing import LabelEncoder
 
 app = Flask(__name__)
@@ -45,3 +46,5 @@ def recommend(temp, hum, ph, rain):
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
