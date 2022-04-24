@@ -1,0 +1,11 @@
+{% extends "layout.html" %} {% block body %} {% if is_plant == True %}
+<div>
+  <h3>{{ title }}</h3>
+  <h4>{{ meta_des }}</h4>
+  <p style="font-size: 18px; top: 20%">{{ des }}</p>
+  <h4>{{ meta_treat }}</h4>
+  <p style="font-size: 18px; top: 20%">{{ treat }}</p>
+  {% else %}
+  <h3>{{ text }}</h3>
+</div>
+{% endif %} {% endblock %}

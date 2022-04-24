@@ -67,7 +67,7 @@ def get_disease(img_path):
     submit_element.click()
     try:
         title_element = extract_values(
-            120, "/html/body/div[3]/div/div[1]/div/h1/b")
+            60, "/html/body/div[3]/div/div[1]/div/h1/b")
 
         meta_des = extract_values(
             10, "/html/body/div[3]/div/div[2]/div/div/h5/b")
@@ -77,15 +77,14 @@ def get_disease(img_path):
             10, "/html/body/div[3]/div/div[3]/div/div/h5/b")
         treat = extract_values(
             10, "/html/body/div[3]/div/div[3]/div[1]/div/p")
-        os.remove(img_path)
         return {"title": title_element,
                 "meta_des": meta_des,
                 "des": des,
                 "meta_treat": meta_treat,
                 "treat": treat}
 
-    finally:
-        driver.quit()
+    except:
+        return True
 
 
 def extract_values(t, p):

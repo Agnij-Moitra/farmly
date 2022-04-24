@@ -1,3 +1,4 @@
+from ast import Try
 import pickle
 import os
 from flask import Flask, jsonify, render_template, request, request_started
@@ -32,10 +33,21 @@ def disease_detection():
         try:
             f.save(secure_filename(f.filename))
         except FileNotFoundError:
-            return ("FILE NOT FOUND!")
-        return get_disease(file_path)
+            return render_template("./Disease-Detection-Out.html", is_plant=False, text="FILE NOT FOUND")
+
         
-        
+        disease_info = get_disease(file_path)
+        if disease_info == True:
+            os.remove(file_path)
+            return render_template("./Disease-Detection-Out.html", is_plant=False, text="PLANT NOT FOUND")
+        os.remove(file_path)
+        return render_template("./Disease-Detection-Out.html", is_plant=True, 
+                               title=disease_info["title"],
+                               meta_des=disease_info["meta_des"],
+                               des=disease_info["des"], 
+                               meta_treat=disease_info["meta_treat"], 
+                               treat=disease_info["treat"])
+
     return render_template("./Disease-Detection.html")
 
 
