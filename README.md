@@ -2,7 +2,7 @@
 ## Local! Natural! Sustainable!
 Description: A crop and fertilizer recommendation. \
 Available At: https://getfarmly.herokuapp.com/ \
-Source Code: https://github.com/Agnij-Moitra/farmly \
+Source Code: https://github.com/Agnij-Moitra/farmly
 ### Vision:
 It was rightly said by Shri Lal Bahadur Shastri Ji, “Jai Jawan Jai Kisan”. Our vision is to add value to the lives of millions of farmers by our agricultural services.
 ### Problem:
