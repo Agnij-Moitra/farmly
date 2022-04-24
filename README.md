@@ -4,7 +4,7 @@ Description: A crop and fertilizer recommendation. \
 Available At: https://getfarmly.herokuapp.com/ \
 Source Code: https://github.com/Agnij-Moitra/farmly
 ## NOTE:
-As the free tier of keroku has low ram, at times the website might crash. But it shoould work after two - three atempts.
+As the free tier of heroku has low ram, at times the website might crash. But it shoould work after two - three atempts.
 ### Vision:
 It was rightly said by Shri Lal Bahadur Shastri Ji, “Jai Jawan Jai Kisan”. Our vision is to add value to the lives of millions of farmers by our agricultural services.
 ### Problem:
