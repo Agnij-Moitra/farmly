@@ -10,6 +10,12 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+df = pd.read_csv('./crop.csv')
+labelencoder = LabelEncoder()
+df['label_cat'] = labelencoder.fit_transform(df['label'])
+with open('model_pickle', "rb") as f:
+    model = pickle.load(f)
+
 op = webdriver.ChromeOptions()
 # https://youtu.be/kiYmBvv94RY
 # https://youtu.be/rfdNIOYGYVI
@@ -50,11 +56,14 @@ def recommend(temp, hum, ph, rain):
 
 
 def get_disease(img_path):
-    driver.get("https://plant-disease-detection-ai.herokuapp.com/index")
-    upload_element = driver.find_element(By.XPATH, '//*[@id="actual-btn"]')
+    driver.get(
+        "https://plant-disease-detection-ai.herokuapp.com/index")
+    upload_element = driver.find_element(
+        By.XPATH, '//*[@id="actual-btn"]')
     upload_element.send_keys(img_path)
     submit_element = driver.find_element(
-        By.XPATH, "/html/body/div[2]/div/div[2]/div[2]/div/form/center/a/button")
+        By.XPATH,
+        "/html/body/div[2]/div/div[2]/div[2]/div/form/center/a/button")
     submit_element.click()
     try:
         title_element = extract_values(
@@ -62,11 +71,19 @@ def get_disease(img_path):
 
         meta_des = extract_values(
             10, "/html/body/div[3]/div/div[2]/div/div/h5/b")
-        des = extract_values(10, "/html/body/div[3]/div/div[2]/div/div/p")
+        des = extract_values(
+            10, "/html/body/div[3]/div/div[2]/div/div/p")
         meta_treat = extract_values(
             10, "/html/body/div[3]/div/div[3]/div/div/h5/b")
-        treat = extract_values(10, "/html/body/div[3]/div/div[3]/div[1]/div/p")
-        return (title_element, (meta_des, des), (meta_treat, treat))
+        treat = extract_values(
+            10, "/html/body/div[3]/div/div[3]/div[1]/div/p")
+        os.remove(img_path)
+        return {"title": title_element,
+                "meta_des": meta_des,
+                "des": des,
+                "meta_treat": meta_treat,
+                "treat": treat}
+
     finally:
         driver.quit()
 
@@ -75,7 +92,3 @@ def extract_values(t, p):
     return WebDriverWait(driver, t).until(
         EC.presence_of_all_elements_located((By.XPATH, f"{p}"))
     )[0].text
-
-
-y = get_disease(r"C:\Users\Admin\Desktop\farmly\infected1.png")
-print(y)
