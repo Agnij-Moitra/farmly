@@ -1,8 +1,9 @@
 import pickle
 
 import pandas as pd
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, request_started
 from sklearn.preprocessing import LabelEncoder
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
@@ -29,21 +30,13 @@ def index():
         return render_template("./out.html", crop=crop, n=n, p=p, k=k)
     return render_template("./index.html")
 
+
 @app.route("/Disease-Detection", methods=["GET", "POST"])
 def disease_detection():
-    # if request.method == "POST":
-    #     temp = float(request.form.get("temperature"))
-    #     hum = float(request.form.get("humidity"))
-    #     ph = float(request.form.get("ph"))
-    #     rain = float(request.form.get("rainfall"))
-    #     pred = recommend(temp, hum, ph, rain)
-    #     crop = pred[0].capitalize()
-    #     n = pred[1][0]
-    #     p = pred[1][1]
-    #     k = pred[1][2]
-
-    #     return render_template("./out.html", crop=crop, n=n, p=p, k=k)
-    # return render_template("./index.html")
+    if request.method == "POST":
+        img = request.form.get("plantDiseaseImg")
+# https://github.com/Agnij-Moitra/edtools/blob/main/app.py
+        # return render_template("./out.html", crop=crop, n=n, p=p, k=k)
     return render_template("./Disease-Detection.html")
 
 
@@ -63,5 +56,3 @@ def recommend(temp, hum, ph, rain):
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-

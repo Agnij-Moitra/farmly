@@ -1,52 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../static/styles.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farmly | Local Natural Sustainable</title>
+    <link href="../static/favicon.ico" rel="icon" />
+  </head>
 
-<head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-  <link rel="stylesheet" href="../static/styles.css" />
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Farmly | Local Natural Sustainable</title>
-  <link href="../static/favicon.ico" rel="icon" />
-
-
-</head>
-
-<body>
-  <div class="card text-white bg-secondary mb-3" style="
+  <body>
+    <div
+      class="card text-white bg-secondary mb-3"
+      style="
         max-width: fit-content;
         justify-content: center;
         align-self: center;
         margin: auto;
         margin-top: 1%;
         margin-bottom: 2%;
-      ">
-      
-    <div class="card-header">
-      <h1>Farmly 🌾: Crop Recommender</h1>
+      "
+    >
+      <div class="card-header">
+        <h1>Farmly 🌾: Crop Recommender</h1>
+      </div>
+      <div class="card-body">
+        <h2 class="card-title">Local! Natural! Sustainable!</h2>
+        <span>
+          <button
+            type="submit"
+            id="btn"
+            class="btn btn-outline-primary form-control form-control-lg"
+            style="padding: 10px; width: max-content; border-radius: 10px"
+          >
+            <a href="/" style="color: white; text-decoration: none"
+              >Crop Recomender</a
+            >
+          </button>
+        </span>
+        <span>
+          <button
+            type="submit"
+            id="btn"
+            class="btn btn-outline-primary form-control form-control-lg"
+            style="padding: 10px; width: max-content; border-radius: 10px"
+          >
+            <a
+              href="/Disease-Detection"
+              style="color: white; text-decoration: none"
+              >Plant Disease Detector</a
+            >
+          </button></span
+        >
+
+        <p class="card-text">{% block body %}{% endblock %}</p>
+      </div>
     </div>
-    <div class="card-body">
-      <h2 class="card-title">Local! Natural! Sustainable!</h2>
-      <span>
-        <button type="submit" id="btn" class="btn btn-outline-primary form-control form-control-lg"
-          style="padding: 10px; width: max-content; border-radius: 10px;">
-          <a href="/" style="color: white; text-decoration: none;">Crop Recomender</a>
-
-        </button>
-      </span>
-      <span> <button type="submit" id="btn" class="btn btn-outline-primary  form-control form-control-lg"
-          style="padding: 10px; width: max-content; border-radius: 10px;">
-          <a href="/Disease-Detection" style="color: white; text-decoration: none;">Plant Disease Detector</a>
-
-        </button></span>
-
-
-      <p class="card-text">{% block body %}{% endblock %}</p>
-    </div>
-
-  </div>
-</body>
-
+  </body>
 </html>
